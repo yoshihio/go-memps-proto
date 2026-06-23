@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package publisher.v1;
+
+import "google/protobuf/wrappers.proto";
+
+service PublisherService {
+  rpc Publish(PublishRequest) returns (PublishResponse);
+}
+
+message PublishRequest {
+  string topic = 1;
+  string message = 2;
+}
+
+message PublishResponse {
+  google.protobuf.BoolValue success = 1;
+}
