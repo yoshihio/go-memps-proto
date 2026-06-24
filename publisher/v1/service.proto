@@ -6,6 +6,7 @@ import "google/protobuf/wrappers.proto";
 
 service PublisherService {
   rpc Publish(PublishRequest) returns (PublishResponse);
+  rpc PublishBytes(PublishBytesRequest) returns (PublishBytesResponse);
 }
 
 message PublishRequest {
@@ -14,5 +15,14 @@ message PublishRequest {
 }
 
 message PublishResponse {
+  google.protobuf.BoolValue success = 1;
+}
+
+message PublishBytesRequest {
+  string topic = 1;
+  bytes message = 2;
+}
+
+message PublishBytesResponse {
   google.protobuf.BoolValue success = 1;
 }
