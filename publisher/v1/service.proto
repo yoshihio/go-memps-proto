@@ -4,6 +4,8 @@ package publisher.v1;
 
 import "google/protobuf/wrappers.proto";
 
+option go_package = "github.com/yoshihio/go-memps-proto/publisher/v1";
+
 service PublisherService {
   rpc Publish(PublishRequest) returns (PublishResponse);
   rpc PublishBytes(PublishBytesRequest) returns (PublishBytesResponse);
