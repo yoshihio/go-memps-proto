@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package subscriber.v1;
+
+option go_package = "github.com/yoshihio/go-memps-proto/subscriber/v1";
+
+service SubscriberService {
+  rpc Subscribe(SubscribeRequest) returns (stream SubscribeResponse);
+  rpc SubscribeBytes(SubscribeBytesRequest) returns (stream SubscribeBytesResponse);
+}
+
+message SubscribeRequest {
+  string topic = 1;
+}
+
+message SubscribeResponse {
+  string subscription_id = 1;
+  string message = 2;
+}
+
+message SubscribeBytesRequest {
+  string topic = 1;
+}
+
+message SubscribeBytesResponse {
+  string subscription_id = 1;
+  bytes message = 2;
+}
